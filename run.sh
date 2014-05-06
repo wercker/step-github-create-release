@@ -41,6 +41,8 @@ create_release() {
     -H "Authorization: token $token" \
     -H "Content-Type: application/json" \
     -d "$payload";
+
+  return $?
 }
 
 export_id_to_env_var() {
