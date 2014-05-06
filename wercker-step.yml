@@ -1,3 +1,3 @@
 name: github-release-deploy
-version: 1.0
-description: wercker step for deploying to GitHub releases
+version: 1.0.0
+description: wercker step for creating a GitHub release
