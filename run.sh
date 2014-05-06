@@ -34,7 +34,7 @@ create_release() {
 
   payload="\{$payload\}";
 
-  echo $payload
+  echo $payload 1>&2;
 
   curl --fail -X POST https://api.github.com/repos/$owner/$repo/releases \
     -A "wercker-create-release" \
@@ -43,7 +43,7 @@ create_release() {
     -H "Content-Type: application/json" \
     -d "$payload";
 
-  echo "curl exit $?";
+  echo "curl exit $?" 1>&2;
 }
 
 export_id_to_env_var() {
