@@ -46,7 +46,7 @@ export_id_to_env_var() {
   local json="$1";
   local export_name="$2";
 
-  local id=$(echo "$json" | $WERCKER_STEP_ROOT/jq ".id");
+  local id=$(echo "$json" | $WERCKER_STEP_ROOT/bin/jq ".id");
 
   export $export_name=$id;
 }
