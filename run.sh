@@ -32,18 +32,14 @@ create_release() {
     payload="$payload,\"prerelease\":\"$prerelease\"";
   fi;
 
-  payload="\{$payload\}";
+  payload="{$payload}";
 
-  echo $payload 1>&2;
-
-  curl --fail -X POST https://api.github.com/repos/$owner/$repo/releases \
+  curl --fail -s -S -X POST https://api.github.com/repos/$owner/$repo/releases \
     -A "wercker-create-release" \
     -H "Accept: application/vnd.github.v3+json" \
     -H "Authorization: token $token" \
     -H "Content-Type: application/json" \
     -d "$payload";
-
-  echo "curl exit $?" 1>&2;
 }
 
 export_id_to_env_var() {
