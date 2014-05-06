@@ -1,3 +1,4 @@
+set -e;
 
 create_release() {
   local token="$1";
