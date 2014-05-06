@@ -41,7 +41,7 @@ create_release() {
     -H "Content-Type: application/json" \
     -d "$payload";
 
-  return $?
+  echo "curl exit $?";
 }
 
 export_id_to_env_var() {
