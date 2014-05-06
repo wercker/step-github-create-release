@@ -67,7 +67,7 @@ main() {
   local body="$WERCKER_GITHUB_CREATE_RELEASE_BODY";
   local draft="$WERCKER_GITHUB_CREATE_RELEASE_DRAFT";
   local prerelease="$WERCKER_GITHUB_CREATE_RELEASE_PRERELEASE";
-  local export_id="$WERCKER_GITHUB_CREATE_RELEASE_ID";
+  local export_id="$WERCKER_GITHUB_CREATE_RELEASE_EXPORT_ID";
 
   # Validate variables
   if [ -z "$token" ]; then
@@ -103,6 +103,10 @@ main() {
     target_commitish="$WERCKER_GIT_COMMIT";
   fi
 
+  if [ -z "$export_id" ]; then
+    export_id="WERCKER_GITHUB_CREATE_RELEASE_ID";
+  fi
+
   # We need jq to parse the result,
   # but we want to install it before doing anything
   install_jq;
@@ -119,7 +123,7 @@ main() {
     "$draft" \
     "$prerelease");
 
-  export_id_to_env_var $RELEASE_RESPONSE $export_id;
+  export_id_to_env_var "$RELEASE_RESPONSE" "$export_id";
 }
 
 # Run the main function

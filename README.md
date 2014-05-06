@@ -1,4 +1,4 @@
-step-github-release-deploy
-==========================
+github-create-release
+=====================
 
-wercker step for deploying to GitHub releases
+A wercker step for creating a GitHub release.
