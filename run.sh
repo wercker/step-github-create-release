@@ -109,7 +109,7 @@ main() {
   fi
 
   # Create the release and save the output from curl
-  local RELEASE_RESPONSE=$(create_release \
+  RELEASE_RESPONSE=$(create_release \
     "$token" \
     "$owner" \
     "$repo" \
