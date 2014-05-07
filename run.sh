@@ -1,5 +1,7 @@
 
 create_release() {
+  set -e;
+
   local token="$1";
   local owner="$2";
   local repo="$3";
@@ -43,6 +45,8 @@ create_release() {
 }
 
 export_id_to_env_var() {
+  set -e;
+
   local json="$1";
   local export_name="$2";
 
@@ -52,6 +56,8 @@ export_id_to_env_var() {
 }
 
 main() {
+  set -e;
+
   # Assign global variables to local variables
   local token="$WERCKER_GITHUB_CREATE_RELEASE_TOKEN";
   local owner="$WERCKER_GITHUB_CREATE_RELEASE_OWNER";
