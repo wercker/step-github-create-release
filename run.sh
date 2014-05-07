@@ -66,22 +66,22 @@ main() {
 
   # Validate variables
   if [ -z "$token" ]; then
-    error "Token not specified; please add a token parameter to the step";
+    fail "Token not specified; please add a token parameter to the step";
   fi
 
   if [ -z "$tag_name" ]; then
-    error "Tag name not specified; please add a tag_name parameter to the step";
+    fail "Tag name not specified; please add a tag_name parameter to the step";
   fi
 
   if [ -n "$draft" ]; then
     if [ "$draft" != "false" ] && [ "$draft" != "true" ]; then
-      error "The parameter draft has to be false or true";
+      fail "The parameter draft has to be false or true";
     fi
   fi
 
   if [ -n "$prerelease" ]; then
     if [ "$prerelease" != "false" ] && [ "$prerelease" != "true" ]; then
-      error "The parameter prerelease has to be false or true";
+      fail "The parameter prerelease has to be false or true";
     fi
   fi
 
