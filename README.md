@@ -52,7 +52,7 @@ GitHub rejected the API call. Check if the tag you are using isn't in use alread
 
 # Creating a GitHub token
 
-To be able to use this step, you will first need to create a GitHub token with an account which has enough permissions to be able to create releases. First goto `Account settings`, then goto `Applications` for the user. Here you can create a token in the `Personal access tokens` section. For a private repository you will need the `repo` scope and for a public repository you will need the `public_repo` scope.
+To be able to use this step, you will first need to create a GitHub token with an account which has enough permissions to be able to create releases. First goto `Account settings`, then goto `Applications` for the user. Here you can create a token in the `Personal access tokens` section. For a private repository you will need the `repo` scope and for a public repository you will need the `public_repo` scope. Then it is recommended to save this token on wercker as a protected environment variable.
 
 # What's new
 
@@ -73,7 +73,7 @@ To be able to use this step, you will first need to create a GitHub token with a
 
 # TODO
 
-- Create better error handling for invalid token en existing tag. (see [Common problems](#common-problems)).
+- Create better error handling for invalid token en existing tag.
 - Escape user input to be valid json.
 - Make sure `export_id` contains a valid environment variable identifier.
 - Add check to see if the tag is not used for a release already.
