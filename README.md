@@ -65,7 +65,7 @@ To be able to use this step, you will first need to create a GitHub token with a
 - `owner` (optional) The GitHub owner of the repository. Defaults to `$WERCKER_GIT_OWNER`, which is the GitHub owner of the original build.
 - `repo` (optional) The name of the GitHub repository. Defaults to `$WERCKER_GIT_REPOSITORY`, which is the repository of the original build.
 - `target-commitish` (optional) Specifies the commitish value that determines where the Git tag is created from. Can be any branch or commit SHA. Defaults to `$WERCKER_GIT_COMMIT`, which is the commit of the original build.
-- `name` (optional) The name of the release. (make sure this is json encoded, see [TODO](#todo))
+- `title` (optional) The title of the release. (make sure this is json encoded, see [TODO](#todo))
 - `body` (optional) Text describing the contents of the tag. (make sure this is json encoded, see [TODO](#todo))
 - `draft` (optional) Create a unpublished release if this is `true`, or create a published release if this is `false`. Defaults to empty, which means the default of GitHub will be used (currently this is `false`).
 - `prerelease` (optional) Create a pre-release release if this is `true`, or create a normal release if this is `false`. Defaults to empty, which means the default of GitHub will be used (currently this is `false`).
@@ -76,6 +76,7 @@ To be able to use this step, you will first need to create a GitHub token with a
 - Create better error handling for invalid token en existing tag. (see [Common problems](#common-problems)).
 - Escape user input to be valid json.
 - Make sure `export_id` contains a valid environment variable identifier.
+- Add check to see if the tag is not used for a release already.
 
 # License
 
