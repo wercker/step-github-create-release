@@ -52,6 +52,8 @@ export_id_to_env_var() {
 
   local id=$(echo "$json" | $WERCKER_STEP_ROOT/bin/jq ".id");
 
+  info "exporting release id ($id) to environment variable: \$$export_name";
+
   export $export_name=$id;
 }
 
@@ -94,19 +96,25 @@ main() {
   # Set variables to defaults if not set by the user
   if [ -z "$owner" ]; then
     owner="$WERCKER_GIT_OWNER";
+    info "no GitHub owner was supplied; using GitHub owner of build repository: $owner";
   fi
 
   if [ -z "$repo" ]; then
     repo="$WERCKER_GIT_REPOSITORY";
+    info "no GitHub repository was supplied; using GitHub repository of build: $repo";
   fi
 
   if [ -z "$target_commitish" ]; then
     target_commitish="$WERCKER_GIT_COMMIT";
+    info "no target commitsh was supplied; using commit hash of the build: $target_commitish";
   fi
 
   if [ -z "$export_id" ]; then
     export_id="WERCKER_GITHUB_CREATE_RELEASE_ID";
+    info "no export id was supplied, using default value: $export_id";
   fi
+
+  info "starting creating release with tag $tag_name to GitHub repo $owner/$repo";
 
   # Create the release and save the output from curl
   RELEASE_RESPONSE=$(create_release \
@@ -120,7 +128,11 @@ main() {
     "$draft" \
     "$prerelease");
 
+  info "finished creating release with tag $tag_name to GitHub repo $owner/$repo";
+
   export_id_to_env_var "$RELEASE_RESPONSE" "$export_id";
+
+  info "successfully created release on GitHub";
 }
 
 # Run the main function
