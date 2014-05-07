@@ -52,8 +52,6 @@ export_id_to_env_var() {
 }
 
 main() {
-  set -e;
-
   # Assign global variables to local variables
   local token="$WERCKER_GITHUB_CREATE_RELEASE_TOKEN";
   local owner="$WERCKER_GITHUB_CREATE_RELEASE_OWNER";
