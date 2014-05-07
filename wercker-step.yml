@@ -1,3 +1,3 @@
 name: github-create-release
-version: 1.0.1-pre6
+version: 1.0.1-pre7
 description: wercker step for creating a GitHub release
