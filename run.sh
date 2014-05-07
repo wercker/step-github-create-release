@@ -27,11 +27,11 @@ create_release() {
   fi;
 
   if [ -n "$draft" ]; then
-    payload="$payload,\"draft\":\"$draft\"";
+    payload="$payload,\"draft\":$draft";
   fi;
 
   if [ -n "$prerelease" ]; then
-    payload="$payload,\"prerelease\":\"$prerelease\"";
+    payload="$payload,\"prerelease\":$prerelease";
   fi;
 
   payload="{$payload}";
