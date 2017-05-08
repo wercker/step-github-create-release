@@ -84,6 +84,10 @@ The MIT License (MIT)
 
 # Changelog
 
+## 2.0.0
+
+- Update `jq` from 1.3 to 1.5
+
 ## 1.0.1
 
 - Initial release.
