@@ -1,6 +1,0 @@
-name: github-create-release
-version: 2.0.0
-description: Wercker step for creating a GitHub release
-keywords:
-  - GitHub
-  - release

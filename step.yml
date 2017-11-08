@@ -1,0 +1,37 @@
+name: github-create-release
+version: 2.1.0
+summary: Wercker step for creating a GitHub release
+tags:
+  - GitHub
+  - release
+properties:
+- name: token
+  type: string
+  required: true
+- name: owner
+  type: string
+  required: false
+- name: repo
+  type: string
+  required: false
+- name: tag
+  type: string
+  required: true
+- name: target_commitish
+  type: string
+  required: false
+- name: title
+  type: string
+  required: false
+- name: body
+  type: string
+  required: false
+- name: draft
+  type: string
+  required: false
+- name: prerelease
+  type: string
+  required: false
+- name: export_id
+  type: string
+  required: false
