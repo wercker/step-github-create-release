@@ -5,12 +5,5 @@ build:
 
 publish:
   steps:
-    - script:
-      name: install apk packages
-      code: |
-        echo "@edge http://dl-cdn.alpinelinux.org/alpine/edge/main" >> /etc/apk/repositories
-        apk update && apk add ca-certificates
-
-    - publish-step:
-        auth_token: $STEPS_AUTH_TOKEN
+    - internal/publish-step:
         owner: wercker
